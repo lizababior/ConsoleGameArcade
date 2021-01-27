@@ -2,20 +2,30 @@ package com.company;
 
 public class Grid {
 
-    private int width, height;
+    private int width = 20;
+    private int height = 12;
     private String[][] screenMatrix;
 
-    public Grid (int width, int height) {
-        this.width = width;
-        this.height = height;
+    public Grid() {
         this.screenMatrix = new String[this.height][this.width];
     }
 
     public int getWidth() {
         return this.width;
     }
+
     public int getHeight() {
         return this.height;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+        screenMatrix = new String[this.height][width];
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+        screenMatrix = new String[height][this.width];
     }
 
     public void initScreen() {
@@ -52,4 +62,8 @@ public class Grid {
         if (screenMatrix[player.getY()][player.getX()].equals("\uD83C\uDF39 ")) Flower.addPoint(player);
     }
 
+    @Override
+    public String toString() {
+        return "rows: " + this.width + "\ncolumns: " + this.height;
+    }
 }
