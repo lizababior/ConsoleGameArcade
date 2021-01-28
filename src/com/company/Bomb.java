@@ -7,15 +7,14 @@ public class Bomb extends Object {
     }
 
     public static void subHealth(Player player) {
-        int h = 0;
-        if((int) (Math.random() * 10) < 5) h = 2;
-        else h = 4;
+        int h = (int) (Math.random() * 10) < 5 ? 2 : 4;
+        player.setHealth(Math.max(player.getHealth() - h, 0));
 
-        if(player.getHealth() - h <= 0) player.setHealth(0);
-        else player.setHealth(player.getHealth() - h);
-
-        if(h == 2) System.out.println("\nBOOM! You lost -2hp");
-        else System.out.println("\nBOOM! You lost -4hp");
+        if (h == 2) {
+            System.out.println("\nBOOM! You lost -2hp");
+        } else {
+            System.out.println("\nBOOM! You lost -4hp");
+        }
     }
 
 }

@@ -7,15 +7,13 @@ public class Food extends Object {
     }
 
     public static void addHealth(Player player) {
-        int h = 0;
-        if((int) (Math.random() * 10) < 5) h = 2;
-        else h = 4;
+        int h = ((int) (Math.random() * 10)) < 5 ? 2 : 4;
+        player.setHealth(Math.min(player.getHealth() + h, 10));
 
-        if(player.getHealth() + h >= 10) player.setHealth(10);
-        else player.setHealth(player.getHealth() + h);
-
-        if(h == 2) System.out.println("Apple gives you +2hp");
-        else System.out.println("Apple gives you +4hp");
+        if (h == 2) {
+            System.out.println("Apple gives you +2hp");
+        } else {
+            System.out.println("Apple gives you +4hp");
+        }
     }
-
 }
