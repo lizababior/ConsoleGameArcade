@@ -1,2 +1,2 @@
 # ConsoleGameArcade
- Simple java console arcade game
+ Simple console arcade game in Java
